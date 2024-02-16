@@ -11,3 +11,5 @@ CREATE TABLE Employee (
 );
 
 
+SELECT "Loaded Person, Employee";
+

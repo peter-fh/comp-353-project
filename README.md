@@ -7,6 +7,7 @@ Syntax for reading sql files is .read file_name.sql
 Syntax for reading database info from file (into table Students):
 
 .separator ","
+
 .open students.txt Students
 
 These can be written into sql files as well
