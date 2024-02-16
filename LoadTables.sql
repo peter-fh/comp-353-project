@@ -1,0 +1,1 @@
+.read Relations/relations.sql
