@@ -1,12 +1,12 @@
 CREATE TABLE Person (
-    SSN INT PRIMARY KEY,
+    SSN varchar(255) PRIMARY KEY,
     Name varchar(255),
     Relationship varchar(255)
 );
 
 
 CREATE TABLE Employee (
-    SSN INT,
+    SSN varchar(255),
     MedicareNumber int PRIMARY KEY,
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );
