@@ -8,7 +8,5 @@ CREATE TABLE Person (
 CREATE TABLE Employee (
     SSN INT,
     MedicareNumber int PRIMARY KEY,
-    Role varchar(255),
-    Name varchar(255),
-    Relationship varchar(255)
+    FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );
