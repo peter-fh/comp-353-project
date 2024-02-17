@@ -1,4 +1,4 @@
-.read Relations/Employee.sql
-.read Relations/Facility.sql
-.read Relations/Residence.sql
-.read Relations/Medical.sql
+.read Entities/Employee.sql
+.read Entities/Facility.sql
+.read Entities/Residence.sql
+.read Entities/Medical.sql
