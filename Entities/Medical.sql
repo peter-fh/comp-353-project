@@ -16,6 +16,3 @@ CREATE TABLE Infection (
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 
 );
-
-
-SELECT "Loaded Vaccine/Infection"

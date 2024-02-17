@@ -7,6 +7,3 @@ CREATE TABLE Residence (
     PhoneNumber varchar(50),
     Bedrooms int
 );
-
-
-SELECT "Loaded Residence";

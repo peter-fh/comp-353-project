@@ -9,6 +9,3 @@ CREATE TABLE Facility (
     Phone varchar(50),
     PostalCode varchar(10)
 );
-
-
-SELECT "Loaded Facility";
