@@ -27,7 +27,6 @@ CREATE TABLE Vaccine (
     SSN varchar(255),
     Type varchar(255),
     VaccinationDate date,
-    Dose varchar(50),
     Location varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );

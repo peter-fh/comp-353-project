@@ -1,6 +1,8 @@
-DROP TABLE Employee;
+DROP TABLE Employee CASCADE;
 DROP TABLE Residence;
-DROP TABLE Person;
-DROP TABLE Facility;
+DROP TABLE Person CASCADE;
+DROP TABLE Facility CASCADE;
 DROP TABLE Vaccine;
 DROP TABLE Infection;
+DROP TABLE Employment CASCADE;
+DROP TABLE Residency;

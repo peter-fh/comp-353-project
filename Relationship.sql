@@ -13,6 +13,6 @@ CREATE TABLE Residency (
     Address varchar(255),
     StartDate DATE,
     EndDate date,
-    FOREIGN KEY (SSN) REFERENCES Employee(SSN), 
+    FOREIGN KEY (SSN) REFERENCES Person(SSN), 
     FOREIGN KEY (Address) REFERENCES Residence(Address) 
 );
