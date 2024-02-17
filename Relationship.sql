@@ -15,5 +15,4 @@ CREATE TABLE Residency (
     EndDate date,
     FOREIGN KEY (SSN) REFERENCES Employee(SSN), 
     FOREIGN KEY (Address) REFERENCES Residence(Address) 
-
 );
