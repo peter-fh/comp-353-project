@@ -24,9 +24,9 @@ CREATE TABLE Facility (
 );
 
 CREATE TABLE Vaccine (
-    SSN int,
+    SSN varchar(255),
     Type varchar(255),
-    VaccinationDate date(50),
+    VaccinationDate date,
     Dose varchar(50),
     Location varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
@@ -34,8 +34,8 @@ CREATE TABLE Vaccine (
 
 
 CREATE TABLE Infection (
-    SSN int,
-    InfectionDate date(255),
+    SSN varchar(255),
+    InfectionDate date,
     Type varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 
