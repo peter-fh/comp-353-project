@@ -12,7 +12,7 @@ GROUP BY facility.name, r.address;
 -- iii
 
 SELECT person.name, residence.address, residence.city, residence.province,
-(SELECT COUNT(*) FROM residency WHERE address = residence.address) AS num_people
+(SELECT COUNT(*) FROM residency WHERE address = residence.address) AS Number_of_people_in_household
 FROM residency r
 JOIN person ON r.SSN=person.ssn
 JOIN residence ON r.address=residence.address
@@ -27,9 +27,23 @@ where r.address IN (
         AND employment.hospitalname = 'Special Installment E' 
 )
 GROUP BY person.name, residence.address
-ORDER BY province, city, address
+ORDER BY province, city, address;
 
 -- v
+SELECT person.name, employment.role, employment.medicarenumber, person.ssn,
+r.phonenumber, infection.infectiondate,
+(SELECT COUNT(*) FROM residency WHERE address = R.address) AS Number_of_people_in_household
+FROM person
+JOIN employee e ON person.SSN=e.ssn
+JOIN employment ON e.medicarenumber=employment.medicarenumber
+JOIN residency ON person.ssn = residency.ssn
+JOIN residence r ON residency.address=r.address
+JOIN infection ON person.SSN = infection.SSN
+WHERE employment.hospitalname = 'Hospital Maisonneuve Rosemont'
+AND employment.enddate IS NULL
+AND person.SSN IN (SELECT infection.SSN FROM infection)
+AND person.SSN NOT IN (SELECT vaccine.SSN FROM vaccine)
+AND (employment.role = 'Doctor' OR employment.role = 'Nurse');
 
 -- vii
 SELECT type, count(*) FROM vaccine
