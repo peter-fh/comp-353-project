@@ -1,5 +1,5 @@
 CREATE TABLE Employment (
-    MedicareNumber int,
+    MedicareNumber varchar(255),
     HospitalName varchar(255),
     Role varchar(255),
     StartDate DATE,
