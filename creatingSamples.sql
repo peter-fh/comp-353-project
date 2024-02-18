@@ -13,12 +13,16 @@ INSERT INTO Person (SSN, Name, Relationship) VALUES
 ('222222222', 'Alice Rodriguez', 'Roommate'),
 ('333333333', 'Jane Stuart', 'Roommate'),
 ('444444444', 'Stephanie Johnson', 'Roommate'),
+('513513455', 'Scarlet Maya', NULL),
+('653573473', 'Larissa Amorim', NULL),
 ('555555555', 'Amy Wilson', 'Roommate');
 
 
 
 
 INSERT INTO Employee (SSN, MedicareNumber) VALUES
+('513513455', 542564),
+('653573473', 753275),
 ('123456789', 111111),
 ('234567890', 222222),
 ('345678901', 333333),
@@ -36,7 +40,9 @@ INSERT INTO Facility (Name, Type, Province, City, Address, Capacity, Website, Ph
 ('CLSC B', 'CLSC', 'Quebec', 'Montreal', '456 Elm St', 50, 'www.clscB.com', '234-567-8901', 'H2B2B2'),
 ('Clinic C', 'Clinic', 'Alberta', 'Calgary', '789 Oak St', 30, 'www.clinicC.com', '345-678-9012', 'T3C3C3'),
 ('Pharmacy D', 'Pharmacy', 'British Columbia', 'Vancouver', '012 Pine St', 20, 'www.pharmacyD.com', '456-789-0123', 'V4D4D4'),
-('Special Installment E', 'Special Installment', 'Manitoba', 'Winnipeg', '345 Cedar St', 15, 'www.installmentE.com', '567-890-1234', 'R5E5E5');
+('Special Installment E', 'Special Installment', 'Manitoba', 'Winnipeg', '345 Cedar St', 15, 'www.installmentE.com', '567-890-1234', 'R5E5E5'),
+('Hospital Maisonneuve Rosemont', 'Hospital', 'Quebec', 'Laval', '531 Jacques-Quartier', 30, 'www.HospitalRosemont.com', '431-5136-6531', 'J3G9K1');
+
 
 INSERT INTO Vaccine (SSN, Type, VaccinationDate, Location) VALUES
 ('123456789', 'Pfizer', '2023-01-01', 'Hospital A'),
@@ -57,16 +63,20 @@ INSERT INTO Infection (SSN, InfectionDate, Type) VALUES
 
 
 INSERT INTO Residence (Address, City, Province, PostalCode, PhoneNumber, Bedrooms) VALUES
+('5642 Olof St', 'Laval', 'Quebec', 'J4F5B8', '531-653-1344', 2),
+('5135 Palm St', 'Laval', 'Quebec', 'J5H2B7', '543-097-3455', 1),
 ('123 Maple St', 'Toronto', 'Ontario', 'M1A1A1', '123-456-7890', 2),
 ('456 Oak St', 'Montreal', 'Quebec', 'H2B2B2', '234-567-8901', 3),
 ('789 Pine St', 'Calgary', 'Alberta', 'T3C3C3', '345-678-9012', 1),
 ('012 Elm St', 'Vancouver', 'British Columbia', 'V4D4D4', '456-789-0123', 4),
 ('345 Cedar St', 'Winnipeg', 'Manitoba', 'R5E5E5', '567-890-1234', 2),
-('4218 Saint Jacques', 'Montreal', 'Quebec', 'M1M 1M1', '416-123-4567', 2),
-('513 McMillan St', 'Vancouver', 'British Columbia', 'V6V 6V6', '604-987-6543', 3);
+('4218 Saint Jacques', 'Montreal', 'Quebec', 'M1M1M1', '416-123-4567', 2),
+('513 McMillan St', 'Vancouver', 'British Columbia', 'V6V6V6', '604-987-6543', 3);
 
 
 INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) VALUES
+(542564, 'Hospital Maisonneuve Rosemont', 'Doctor', '2023-05-03', NULL),
+(753275, 'Hospital Maisonneuve Rosemont', 'Nurse', '2023-01-02', NULL),
 (111111, 'Hospital A', 'Nurse', '2023-01-01', NULL),
 (222222, 'CLSC B', 'Doctor', '2023-01-01', NULL),
 (333333, 'Clinic C', 'Cashier', '2023-01-01', NULL),
@@ -80,6 +90,8 @@ INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) 
 
 
 INSERT INTO Residency (SSN, Address, StartDate, EndDate) VALUES
+('513513455', '5642 Olof St', '2023-10-10', NULL),
+('653573473', '5135 Palm St', '2023-07-11', NULL),
 ('123456789', '123 Maple St', '2023-01-01', NULL),
 ('234567890', '456 Oak St', '2023-02-01', NULL),
 ('345678901', '789 Pine St', '2023-03-01', NULL),
