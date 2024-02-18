@@ -58,8 +58,10 @@ INSERT INTO Infection (SSN, InfectionDate, Type) VALUES
 ('345678901', '2023-03-15', 'COVID-19'),
 ('456789012', '2023-04-20', 'SARS-CoV-2 Variant'),
 ('567890123', '2023-05-25', 'COVID-19'),
+('653573473', '2024-04-07', 'COVID-19'),
 ('111111111', '2024-02-10', 'COVID-19'),
 ('333333333', '2024-02-11', 'COVID-19');
+
 
 
 INSERT INTO Residence (Address, City, Province, PostalCode, PhoneNumber, Bedrooms) VALUES
