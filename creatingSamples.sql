@@ -72,10 +72,10 @@ INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) 
 (333333, 'Clinic C', 'Cashier', '2023-01-01', NULL),
 (444444, 'Pharmacy D', 'Pharmacist', '2023-01-01', NULL),
 (555555, 'Special Installment E', 'Receptionist', '2023-01-01', NULL),
-(123456, 'Special Installment E', 'Doctor', '2023-01-01', NULL);
-(234567, 'Special Installment E', 'Nurse', '2023-01-01', NULL);
-(345678, 'Special Installment E', 'Cashier', '2023-01-01', NULL);
-(456789, 'Special Installment E', 'Pharmacist', '2023-01-01', NULL);
+(123456, 'Special Installment E', 'Doctor', '2023-01-01', NULL),
+(234567, 'Special Installment E', 'Nurse', '2023-01-01', NULL),
+(345678, 'Special Installment E', 'Cashier', '2023-01-01', NULL),
+(456789, 'Special Installment E', 'Pharmacist', '2023-01-01', NULL),
 (567890, 'Special Installment E', 'Security Personnel', '2023-01-01', NULL);
 
 
