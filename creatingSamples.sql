@@ -90,4 +90,4 @@ INSERT INTO Residency (SSN, Address, StartDate, EndDate) VALUES
 ('222222222', '4218 Saint Jacques', '2023-07-02', NULL),
 ('333333333', '513 McMillan St', '2023-07-01', NULL),
 ('444444444', '513 McMillan St', '2023-09-03', NULL),
-('555555555', '513 McMillan St', '2023-15-01', NULL);
+('555555555', '513 McMillan St', '2023-10-01', NULL);
