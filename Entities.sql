@@ -35,6 +35,7 @@ CREATE TABLE Vaccine (
 CREATE TABLE Infection (
     SSN varchar(255),
     InfectionDate date,
+    RecoveryDate date,
     Type varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 

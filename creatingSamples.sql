@@ -52,15 +52,15 @@ INSERT INTO Vaccine (SSN, Type, VaccinationDate, Location) VALUES
 ('567890123', 'Pfizer', '2023-05-01', 'Special Installment E');
 
 
-INSERT INTO Infection (SSN, InfectionDate, Type) VALUES
-('123456789', '2023-01-05', 'COVID-19'),
-('234567890', '2023-02-10', 'SARS-CoV-2 Variant'),
-('345678901', '2023-03-15', 'COVID-19'),
-('456789012', '2023-04-20', 'SARS-CoV-2 Variant'),
-('567890123', '2023-05-25', 'COVID-19'),
-('653573473', '2024-04-07', 'COVID-19'),
-('111111111', '2024-02-10', 'COVID-19'),
-('333333333', '2024-02-11', 'COVID-19');
+INSERT INTO Infection (SSN, InfectionDate, RecoveryDate, Type) VALUES
+('123456789', '2023-01-05', '2023-02-05', 'COVID-19'),
+('234567890', '2023-02-10', '2023-02-15', 'SARS-CoV-2 Variant'),
+('345678901', '2023-03-15', '2023-04-10', 'COVID-19'),
+('456789012', '2023-04-20', '2023-05-10', 'SARS-CoV-2 Variant'),
+('567890123', '2023-05-25', '2023-06-10', 'COVID-19'),
+('653573473', '2024-04-07', NULL, 'COVID-19'),
+('111111111', '2024-02-10', NULL, 'COVID-19'),
+('333333333', '2024-02-11', NULL, 'COVID-19');
 
 
 
