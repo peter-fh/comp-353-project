@@ -83,6 +83,7 @@ INSERT INTO Residence (Address, City, Province, PostalCode, PhoneNumber, Bedroom
 INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) VALUES
 (542564, 'Hospital Maisonneuve Rosemont', 'Doctor', '2023-05-03', NULL),
 (753275, 'Hospital Maisonneuve Rosemont', 'Nurse', '2023-01-02', NULL),
+(010101, 'Hospital Maisonneuve Rosemont', 'Pharmacist', '2023-01-01', NULL),
 (111111, 'Hospital A', 'Nurse', '2023-01-01', NULL),
 (222222, 'CLSC B', 'Doctor', '2023-01-01', NULL),
 (333333, 'Clinic C', 'Cashier', '2023-01-01', NULL),
@@ -92,7 +93,6 @@ INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) 
 (234567, 'Special Installment E', 'Nurse', '2023-01-01', NULL),
 (345678, 'Special Installment E', 'Cashier', '2023-01-01', NULL),
 (456789, 'Special Installment E', 'Pharmacist', '2023-01-01', NULL),
-(010101, 'Hospital Maisonneuve Rosemont', 'Pharmacist', '2023-01-01', NULL),
 (567890, 'Special Installment E', 'Security Personnel', '2023-01-01', NULL);
 
 
@@ -113,4 +113,5 @@ INSERT INTO Residency (SSN, Address, StartDate, EndDate) VALUES
 ('222222222', '4218 Saint Jacques', '2023-07-02', NULL),
 ('333333333', '513 McMillan St', '2023-07-01', NULL),
 ('444444444', '513 McMillan St', '2023-09-03', NULL),
-('555555555', '513 McMillan St', '2023-10-01', NULL);
+('555555555', '513 McMillan St', '2023-10-01', NULL),
+('010101010', '124 Maple St', '2023-01-01', NULL);

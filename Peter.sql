@@ -33,7 +33,6 @@ SELECT
     employment.medicarenumber, 
     person.ssn, 
     r.phonenumber, 
-    infection.infectiondate,
     (SELECT COUNT(*) FROM residency WHERE address = R.address) AS Number_of_people_in_household
 FROM 
     person
@@ -41,14 +40,14 @@ FROM
     JOIN employment ON e.medicarenumber=employment.medicarenumber
     JOIN residency ON person.ssn = residency.ssn
     JOIN residence r ON residency.address=r.address
-    JOIN infection ON person.SSN = infection.SSN
 WHERE 
     employment.hospitalname = 'Hospital Maisonneuve Rosemont'
     AND employment.enddate IS NULL
     AND person.SSN NOT IN (SELECT vaccine.SSN FROM vaccine)
     AND person.SSN NOT IN (SELECT infection.SSN FROM infection)
 ORDER BY 
-    employment.role, person.name;
+    employment.role ASC, person.name;
+
 
 
 -- viii
