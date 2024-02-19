@@ -15,6 +15,7 @@ INSERT INTO Person (SSN, Name, Relationship) VALUES
 ('444444444', 'Stephanie Johnson', 'Roommate'),
 ('513513455', 'Scarlet Maya', NULL),
 ('653573473', 'Larissa Amorim', NULL),
+('010101010', 'Guy Fieri', NULL),
 ('555555555', 'Amy Wilson', 'Roommate');
 
 
@@ -32,6 +33,7 @@ INSERT INTO Employee (SSN, MedicareNumber) VALUES
 ('222222222', 234567),
 ('333333333', 345678),
 ('444444444', 456789),
+('010101010', 010101),
 ('555555555', 567890);
 
 
@@ -54,6 +56,8 @@ INSERT INTO Vaccine (SSN, Type, VaccinationDate, Location) VALUES
 
 INSERT INTO Infection (SSN, InfectionDate, RecoveryDate, Type) VALUES
 ('123456789', '2023-01-05', '2023-02-05', 'COVID-19'),
+('123456789', '2023-02-10', '2023-02-15', 'COVID-19'),
+('123456789', '2023-03-20', '2023-04-01', 'COVID-19'),
 ('234567890', '2023-02-10', '2023-02-15', 'SARS-CoV-2 Variant'),
 ('345678901', '2023-03-15', '2023-04-10', 'COVID-19'),
 ('456789012', '2023-04-20', '2023-05-10', 'SARS-CoV-2 Variant'),
@@ -88,6 +92,7 @@ INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) 
 (234567, 'Special Installment E', 'Nurse', '2023-01-01', NULL),
 (345678, 'Special Installment E', 'Cashier', '2023-01-01', NULL),
 (456789, 'Special Installment E', 'Pharmacist', '2023-01-01', NULL),
+(010101, 'Hospital Maisonneuve Rosemont', 'Pharmacist', '2023-01-01', NULL),
 (567890, 'Special Installment E', 'Security Personnel', '2023-01-01', NULL);
 
 
