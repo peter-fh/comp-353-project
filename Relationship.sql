@@ -2,8 +2,8 @@ CREATE TABLE Employment (
     MedicareNumber varchar(255),
     HospitalName varchar(255),
     Role varchar(255),
-    StartDate DATE,
-    EndDate DATE,
+    StartDate DATETIME,
+    EndDate DATETIME,
     FOREIGN KEY (MedicareNumber) REFERENCES Employee(MedicareNumber),
     FOREIGN KEY (HospitalName) REFERENCES Facility(Name)
 );

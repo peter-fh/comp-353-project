@@ -14,13 +14,26 @@ CREATE TABLE Employee (
 CREATE TABLE Facility (
     Name varchar(255) PRIMARY KEY,
     Type varchar(255),
-    Province varchar(255),
-    City varchar(255),
     Address varchar(255),
     Capacity int,
     Website varchar(255),
     Phone varchar(50),
-    PostalCode varchar(10)
+);
+
+CREATE TABLE PostalCode (
+    Code varchar(10),
+    FOREIGN KEY (Name) REFERENCES Facility(Name)
+);
+
+CREATE TABLE City (
+    CityName varchar(255),
+    FOREIGN KEY (Code) REFERENCES PostalCode(Code),
+    FOREIGN KEY (Address) REFERENCES Residence(Address)
+);
+
+CREATE TABLE Province (
+    ProvinceName varchar(255)
+    FOREIGN KEY (CityName) REFERENCES City (CityName)
 );
 
 CREATE TABLE Vaccine (
@@ -28,6 +41,7 @@ CREATE TABLE Vaccine (
     Type varchar(255),
     VaccinationDate date,
     Location varchar(255),
+    Dose varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );
 
@@ -42,11 +56,10 @@ CREATE TABLE Infection (
 );
 
 CREATE TABLE Residence (
-    Address varchar(255) PRIMARY KEY,
-    City varchar(255),
+    Address varchar(255),
     Type varchar(255),
-    Province varchar(20),
     PostalCode varchar(10),
     PhoneNumber varchar(50),
-    Bedrooms int
+    Bedrooms int,
+    PRIMARY KEY (Address, PostalCode)
 );
