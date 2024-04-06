@@ -17,22 +17,35 @@ CREATE TABLE Facility (
     Address varchar(255),
     Capacity int,
     Website varchar(255),
-    Phone varchar(50),
+    Phone varchar(50)
+);
+
+CREATE TABLE Residence (
+    Address varchar(255),
+    Type varchar(255),
+    PostalCode varchar(10),
+    PhoneNumber varchar(50),
+    Bedrooms int,
+    PRIMARY KEY (Address, PostalCode)
 );
 
 CREATE TABLE PostalCode (
-    Code varchar(10),
+    Name varchar(255),
+    Code varchar(10) PRIMARY KEY,
     FOREIGN KEY (Name) REFERENCES Facility(Name)
 );
 
 CREATE TABLE City (
-    CityName varchar(255),
+    CityName varchar(255) PRIMARY KEY,
+    Code varchar(10),
+    Address varchar(255),
     FOREIGN KEY (Code) REFERENCES PostalCode(Code),
     FOREIGN KEY (Address) REFERENCES Residence(Address)
 );
 
 CREATE TABLE Province (
-    ProvinceName varchar(255)
+    ProvinceName varchar(255) PRIMARY KEY,
+    CityName varchar(255),
     FOREIGN KEY (CityName) REFERENCES City (CityName)
 );
 
@@ -53,13 +66,4 @@ CREATE TABLE Infection (
     Type varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 
-);
-
-CREATE TABLE Residence (
-    Address varchar(255),
-    Type varchar(255),
-    PostalCode varchar(10),
-    PhoneNumber varchar(50),
-    Bedrooms int,
-    PRIMARY KEY (Address, PostalCode)
 );
