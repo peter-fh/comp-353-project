@@ -1,60 +1,57 @@
--- Sample data for Person table
+-- Inserting sample data into Person table
 INSERT INTO Person (SSN, Name, Relationship) VALUES
-('123456789', 'John Doe', 'Self'),
-('987654321', 'Jane Smith', 'Spouse'),
-('111222333', 'Alice Johnson', 'Child');
+('123-45-6789', 'John Doe', 'Self'),
+('987-65-4321', 'Jane Doe', 'Spouse'),
+('456-78-9012', 'Alice Smith', 'Dependent');
 
--- Sample data for Employee table
+-- Inserting sample data into Employee table
 INSERT INTO Employee (SSN, MedicareNumber) VALUES
-('123456789', 'EMP123'),
-('987654321', 'EMP456'),
-('111222333', 'EMP789');
+('123-45-6789', 'EMP001'),
+('987-65-4321', 'EMP002');
 
--- Sample data for Facility table
+-- Inserting sample data into Facility table
 INSERT INTO Facility (Name, Type, Address, Capacity, Website, Phone) VALUES
-('Hospital A', 'Hospital', '123 Main St', 100, 'www.hospitala.com', '123-456-7890'),
-('Clinic B', 'Clinic', '456 Elm St', 50, 'www.clinicb.com', '987-654-3210');
+('Sunrise Hospital', 'Hospital', '123 Main St', 200, 'www.sunrisehospital.com', '+1 (123) 456-7890'),
+('Pinecrest Nursing Home', 'Nursing Home', '456 Oak Ave', 100, 'www.pinecrestnursinghome.com', '+1 (987) 654-3210');
 
--- Sample data for PostalCode table
-INSERT INTO PostalCode (Code, Name) VALUES
-('12345', 'Hospital A'),
-('67890', 'Clinic B');
-
--- Sample data for City table
-INSERT INTO City (CityName, Code) VALUES
-('City A', '12345'),
-('City B', '67890');
-
--- Sample data for Province table
-INSERT INTO Province (ProvinceName) VALUES
-('Province X'),
-('Province Y');
-
--- Sample data for Vaccine table
-INSERT INTO Vaccine (SSN, Type, VaccinationDate, Location, Dose) VALUES
-('123456789', 'COVID-19', '2023-01-15', 'Hospital A', 'First'),
-('987654321', 'Flu', '2023-02-20', 'Clinic B', 'First'),
-('111222333', 'COVID-19', '2023-03-25', 'Hospital A', 'Second');
-
--- Sample data for Infection table
-INSERT INTO Infection (SSN, InfectionDate, RecoveryDate, Type) VALUES
-('123456789', '2022-05-10', '2022-05-25', 'Cold'),
-('987654321', '2022-07-15', '2022-08-05', 'Flu'),
-('111222333', '2022-09-20', '2022-10-10', 'COVID-19');
-
--- Sample data for Residence table
+-- Inserting sample data into Residence table
 INSERT INTO Residence (Address, Type, PostalCode, PhoneNumber, Bedrooms) VALUES
-('123 Main St', 'House', '12345', '111-222-3333', 3),
-('456 Elm St', 'Apartment', '67890', '444-555-6666', 2);
+('123 Main St', 'House', '12345', '+1 (555) 123-4567', 3),
+('456 Oak Ave', 'Apartment', '67890', '+1 (555) 987-6543', 2);
 
--- Sample data for Employment table
-INSERT INTO Employment (MedicareNumber, HospitalName, Role, StartDate, EndDate) VALUES
-('EMP123', 'Hospital A', 'Nurse', '2023-01-01', NULL),
-('EMP456', 'Clinic B', 'Doctor', '2023-02-01', NULL),
-('EMP789', 'Hospital A', 'Technician', '2023-03-01', NULL);
+-- Inserting sample data into PostalCode table
+INSERT INTO PostalCode (Name, Code) VALUES
+('Sunrise Hospital', '12345'),
+('Pinecrest Nursing Home', '67890');
 
--- Sample data for Residency table
-INSERT INTO Residency (SSN, Address, StartDate, EndDate) VALUES
-('123456789', '123 Main St', '2022-01-01', NULL),
-('987654321', '456 Elm St', '2022-01-01', NULL),
-('111222333', '123 Main St', '2022-01-01', NULL);
+-- Inserting sample data into City table
+INSERT INTO City (CityName, Code, Address) VALUES
+('Metropolis', '12345', '123 Main St'),
+('Smalltown', '67890', '456 Oak Ave');
+
+-- Inserting sample data into Province table
+INSERT INTO Province (ProvinceName, CityName) VALUES
+('StateA', 'Metropolis'),
+('StateB', 'Smalltown');
+
+-- Inserting sample data into Vaccine table
+INSERT INTO Vaccine (SSN, Type, VaccinationDate, Location, Dose) VALUES
+('123-45-6789', 'COVID-19', '2023-01-15', 'Sunrise Hospital', '1st'),
+('987-65-4321', 'COVID-19', '2023-02-20', 'Pinecrest Nursing Home', '1st');
+
+-- Inserting sample data into Infection table
+INSERT INTO Infection (SSN, InfectionDate, RecoveryDate, Type) VALUES
+('123-45-6789', '2023-03-01', '2023-03-15', 'COVID-19'),
+('987-65-4321', '2023-03-10', '2023-03-25', 'COVID-19');
+
+-- Inserting sample data into Residency table
+INSERT INTO Residency (SSN, Address, StartDate, EndDate, IsPrimary) VALUES
+('123-45-6789', '123 Main St', '2020-01-01', NULL, 1),
+('987-65-4321', '456 Oak Ave', '2021-05-01', NULL, 1);
+
+-- Inserting sample data into Schedule table
+INSERT INTO Schedule (EmployeeMedicareNumber, FacilityName, ScheduleDate, StartTime, EndTime) VALUES
+('EMP001', 'Sunrise Hospital', '2024-04-08', '08:00:00', '16:00:00'),
+('EMP002', 'Pinecrest Nursing Home', '2024-04-09', '09:00:00', '17:00:00'),
+('EMP001', 'Sunrise Hospital', '2024-04-10', '08:30:00', '15:30:00'),
+('EMP002', 'Pinecrest Nursing Home', '2024-04-11', '09:30:00', '17:30:00');

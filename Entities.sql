@@ -65,5 +65,4 @@ CREATE TABLE Infection (
     RecoveryDate date,
     Type varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
-
 );
