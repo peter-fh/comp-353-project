@@ -1,5 +1,5 @@
 CREATE TABLE Schedule (
-    ScheduleID INTEGER PRIMARY KEY AUTOINCREMENT,
+    ScheduleID INTEGER PRIMARY KEY AUTO_INCREMENT,
     EmployeeMedicareNumber VARCHAR(255),
     FacilityName VARCHAR(255),
     ScheduleDate DATE,
@@ -8,26 +8,38 @@ CREATE TABLE Schedule (
     CONSTRAINT CHK_StartTimeBeforeEndTime CHECK (StartTime < EndTime)
 );
 
-CREATE TRIGGER noOverlappingSchedules
+DELIMITER //
+
+CREATE TRIGGER no_overlapping_schedules
 BEFORE INSERT ON Schedule
 FOR EACH ROW
 BEGIN
-    SELECT CASE
-        WHEN EXISTS (
-            SELECT 1
-            FROM Schedule s2
-            WHERE s2.EmployeeMedicareNumber = NEW.EmployeeMedicareNumber
-              AND s2.FacilityName = NEW.FacilityName
-              AND s2.ScheduleDate = NEW.ScheduleDate
-              AND (
-                  (s2.StartTime BETWEEN NEW.StartTime AND NEW.EndTime)
-                  OR (s2.EndTime BETWEEN NEW.StartTime AND NEW.EndTime)
-                  OR (NEW.StartTime BETWEEN s2.StartTime AND s2.EndTime)
-              )
-        ) THEN RAISE(ABORT, 'No overlapping schedules')
-    END;
-END;
+    DECLARE overlapping_count INT;
 
+    -- Count the number of overlapping schedules
+    SELECT COUNT(*)
+    INTO overlapping_count
+    FROM Schedule s
+    WHERE s.EmployeeMedicareNumber = NEW.EmployeeMedicareNumber
+      AND s.FacilityName = NEW.FacilityName
+      AND s.ScheduleDate = NEW.ScheduleDate
+      AND (
+          (s.StartTime BETWEEN NEW.StartTime AND NEW.EndTime)
+          OR (s.EndTime BETWEEN NEW.StartTime AND NEW.EndTime)
+          OR (NEW.StartTime BETWEEN s.StartTime AND s.EndTime)
+	    OR (SUBTIME(NEW.StartTime, '02:00:00') BETWEEN s.StartTime AND s.EndTime)
+	OR (ADDTIME(NEW.EndTime, '02:00:00') BETWEEN s.StartTime AND s.EndTime)
+      );
+
+    -- If overlapping schedules found, raise error
+    IF overlapping_count > 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Overlapping schedules are not allowed';
+    END IF;
+END;
+//
+
+DELIMITER ;
 /* CREATE TABLE Schedule (
     ScheduleID INT PRIMARY KEY AUTO_INCREMENT,
     EmployeeMedicareNumber VARCHAR(255),
