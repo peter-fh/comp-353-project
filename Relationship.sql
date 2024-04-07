@@ -1,4 +1,34 @@
 CREATE TABLE Schedule (
+    ScheduleID INTEGER PRIMARY KEY AUTOINCREMENT,
+    EmployeeMedicareNumber VARCHAR(255),
+    FacilityName VARCHAR(255),
+    ScheduleDate DATE,
+    StartTime TIME,
+    EndTime TIME,
+    CONSTRAINT CHK_StartTimeBeforeEndTime CHECK (StartTime < EndTime)
+);
+
+CREATE TRIGGER noOverlappingSchedules
+BEFORE INSERT ON Schedule
+FOR EACH ROW
+BEGIN
+    SELECT CASE
+        WHEN EXISTS (
+            SELECT 1
+            FROM Schedule s2
+            WHERE s2.EmployeeMedicareNumber = NEW.EmployeeMedicareNumber
+              AND s2.FacilityName = NEW.FacilityName
+              AND s2.ScheduleDate = NEW.ScheduleDate
+              AND (
+                  (s2.StartTime BETWEEN NEW.StartTime AND NEW.EndTime)
+                  OR (s2.EndTime BETWEEN NEW.StartTime AND NEW.EndTime)
+                  OR (NEW.StartTime BETWEEN s2.StartTime AND s2.EndTime)
+              )
+        ) THEN RAISE(ABORT, 'No overlapping schedules')
+    END;
+END;
+
+/* CREATE TABLE Schedule (
     ScheduleID INT PRIMARY KEY AUTO_INCREMENT,
     EmployeeMedicareNumber VARCHAR(255),
     FacilityName VARCHAR(255),
@@ -56,10 +86,10 @@ CREATE TABLE Schedule (
             )
         )
 );
+*/
 
 
-
-CREATE TABLE Residency (
+/* CREATE TABLE Residency (
     SSN varchar(255),
     Address varchar(255),
     StartDate DATE,
@@ -85,4 +115,4 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Each person can have only one primary residence.';
     END IF;
-END;
+END; */
