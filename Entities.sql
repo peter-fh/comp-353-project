@@ -8,6 +8,7 @@ CREATE TABLE Person (
 CREATE TABLE Employee (
     SSN varchar(255),
     MedicareNumber varchar(255) PRIMARY KEY,
+    Email varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );
 
@@ -67,7 +68,7 @@ CREATE TABLE Infection (
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );
 
-CREATE TABLE Email (
+CREATE TABLE EmailLog(
     EmailID INTEGER PRIMARY KEY AUTO_INCREMENT,
     Recipient VARCHAR(255),
     Subject VARCHAR(255),
@@ -75,4 +76,9 @@ CREATE TABLE Email (
     SendDate DATE,
     Sent bit,
     FOREIGN KEY (Recipient) REFERENCES Employee(MedicareNumber)
+);
+
+CREATE TABLE ScheduleEvent (
+    EventID INTEGER PRIMARY KEY AUTO_INCREMENT,
+    EventDate DATE
 );

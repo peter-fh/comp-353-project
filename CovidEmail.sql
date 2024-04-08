@@ -18,7 +18,7 @@ BEGIN
     );
 
     INSERT INTO notified_employees
-	SELECT DISTINCT EmployeeMedicareNumber
+	SELECT DISTINCT s.MedicareNumber 
 	FROM Schedule s
 	WHERE s.ScheduleDate IN (
 	    SELECT ScheduleDate FROM infected_schedule i
@@ -26,9 +26,9 @@ BEGIN
 	    OR s.EndTime BETWEEN i.StartTime AND i.EndTime
 	);
 
-    INSERT INTO Email (Recipient, Subject, Body, SendDate, Sent)
-	SELECT DISTINCT MedicareNumber, 'COVID-19 Exposure', 'You have been exposed to COVID-19. Please get tested and self-isolate.', CURDATE(), 0
-    FROM notified_employees;
+    INSERT INTO EmailLog (Recipient, Subject, Body, SendDate, Sent)
+	SELECT DISTINCT e.Email, 'COVID-19 Exposure', 'You have been exposed to COVID-19. Please get tested and self-isolate.', CURDATE(), 0
+    FROM notified_employees JOIN Employee e ON notified_employees.MedicareNumber = e.MedicareNumber;
 END//
 
 
@@ -44,4 +44,3 @@ END//
 
 DELIMITER ;
 
-SELECT "Hello";

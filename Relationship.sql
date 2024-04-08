@@ -8,10 +8,6 @@ CREATE TABLE Schedule (
     CONSTRAINT CHK_StartTimeBeforeEndTime CHECK (StartTime < EndTime)
 );
 
-
-
-
-
 /* CREATE TABLE Residency (
     SSN varchar(255),
     Address varchar(255),
