@@ -7,11 +7,8 @@ JOIN Residency r ON p.SSN = r.SSN
 JOIN Schedule s ON emp.MedicareNumber = s.EmployeeMedicareNumber
 WHERE r.IsPrimary = 0
 AND s.ScheduleDate BETWEEN SUBDATE(CURDATE(), INTERVAL 7 DAY) AND CURDATE()
-AND COUNT(r.ssn) > 2
-GROUP BY e.Role, COUNT(r.SSN);
+GROUP BY p.Name, e.Role
+HAVING COUNT(r.ssn) > 2;
 
-/* SELECT *
-FROM Employee e
-JOIN Employment emp ON e.MedicareNumber = emp.MedicareNumber
-JOIN  */
+
 

@@ -74,7 +74,7 @@ CREATE TABLE EmailLog(
     Subject VARCHAR(255),
     Body TEXT,
     SendDate DATE,
-    Sent bit
+    IsSent bit
 );
 
 CREATE TABLE ScheduleEvent (

@@ -79,9 +79,9 @@ BEGIN
 	AND NEW.ScheduleDate <= DATE_ADD(v.VaccinationDate, INTERVAL 6 MONTH)
 	AND v.Type = 'COVID-19';
 
-    IF infected < 1 THEN
+    IF vaccine_count < 1 THEN
 		SIGNAL SQLSTATE '45000'
-		SET MESSAGE_TEXT = 'Employee is infected and cannot be scheduled';
+		SET MESSAGE_TEXT = 'Employee is not vaccinated and cannot be scheduled';
 	END IF;
     
 END //
