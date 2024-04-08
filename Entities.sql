@@ -66,3 +66,13 @@ CREATE TABLE Infection (
     Type varchar(255),
     FOREIGN KEY (SSN) REFERENCES Person(SSN)
 );
+
+CREATE TABLE Email (
+    EmailID INTEGER PRIMARY KEY AUTO_INCREMENT,
+    Recipient VARCHAR(255),
+    Subject VARCHAR(255),
+    Body TEXT,
+    SendDate DATE,
+    Sent bit,
+    FOREIGN KEY (Recipient) REFERENCES Employee(MedicareNumber)
+);
