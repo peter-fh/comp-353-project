@@ -11,6 +11,7 @@ CREATE TABLE Schedule (
 
 
 
+
 /* CREATE TABLE Residency (
     SSN varchar(255),
     Address varchar(255),
