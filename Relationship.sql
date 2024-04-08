@@ -22,12 +22,14 @@ CREATE TABLE Employment (
     MedicareNumber varchar(255),
     FacilityName varchar(255),
     Role varchar(255),
-    StartDate DAT-E,
+    StartDate DATE,
     EndDate DATE
-)
+);
 
 
--- Ensures a person can only have one primary residence
+/*Ensures a person can only have one primary residence*/
+/* DELIMITER //
+
 CREATE TRIGGER EnsureOnePrimaryResidency
 BEFORE INSERT OR UPDATE ON Residency
 FOR EACH ROW
@@ -39,7 +41,22 @@ BEGIN
     WHERE SSN = NEW.SSN AND IsPrimary = 1;
     
     IF NEW.IsPrimary = 1 AND primaryCount > 0 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Each person can have only one primary residence.';
+	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Each person can have only one primary residence.';
     END IF;
-END; 
+END//
+DELIMITER ;
+*/
+
+/* DELIMITER //
+
+CREATE TRIGGER EnsureOnePrimaryResidency 
+BEFORE INSERT OR UPDATE ON Residency
+FOR EACH ROW
+BEGIN
+    DECLARE primaryCount INT;
+    SELECT COUNT(*) INTO primaryCount
+    FROM Residency
+	WHERE SSN = NEW.SSN AND IsPrimary = 1;
+END//
+
+DELIMITER ; */

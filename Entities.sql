@@ -30,25 +30,25 @@ CREATE TABLE Residence (
     PRIMARY KEY (Address, PostalCode)
 );
 
-CREATE TABLE PostalCode (
-    Name varchar(255),
-    Code varchar(10) PRIMARY KEY,
-    FOREIGN KEY (Name) REFERENCES Facility(Name)
+CREATE TABLE Province (
+    CityName varchar(255) PRIMARY KEY,
+    ProvinceName varchar(255)
 );
 
 CREATE TABLE City (
-    CityName varchar(255) PRIMARY KEY,
-    Code varchar(10),
-    Address varchar(255),
-    FOREIGN KEY (Code) REFERENCES PostalCode(Code),
-    FOREIGN KEY (Address) REFERENCES Residence(Address)
+    Code varchar(10) PRIMARY KEY,
+    CityName varchar(255),
+    FOREIGN KEY (CityName) REFERENCES Province(CityName)
 );
 
-CREATE TABLE Province (
-    ProvinceName varchar(255) PRIMARY KEY,
-    CityName varchar(255),
-    FOREIGN KEY (CityName) REFERENCES City (CityName)
+CREATE TABLE PostalCode (
+    Name varchar(255) PRIMARY KEY,
+    Code varchar(10) ,
+    FOREIGN KEY (Name) REFERENCES Facility(Name),
+    FOREIGN KEY (Code) REFERENCES City(Code)
 );
+
+
 
 CREATE TABLE Vaccine (
     SSN varchar(255),
@@ -74,11 +74,10 @@ CREATE TABLE EmailLog(
     Subject VARCHAR(255),
     Body TEXT,
     SendDate DATE,
-    Sent bit,
-    FOREIGN KEY (Recipient) REFERENCES Employee(Email)
+    Sent bit
 );
 
 CREATE TABLE ScheduleEvent (
     EventID INTEGER PRIMARY KEY AUTO_INCREMENT,
     EventDate DATE
-);
+);  

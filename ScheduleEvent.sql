@@ -19,11 +19,4 @@ BEGIN
 END //
 
 
-
-CREATE TRIGGER schedule_event
-AFTER INSERT ON Schedule
-FOR EACH ROW
-BEGIN
-END // 
-
 DELIMITER ; 
