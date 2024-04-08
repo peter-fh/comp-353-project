@@ -8,7 +8,7 @@ CREATE TABLE Schedule (
     CONSTRAINT CHK_StartTimeBeforeEndTime CHECK (StartTime < EndTime)
 );
 
-/* CREATE TABLE Residency (
+CREATE TABLE Residency (
     SSN varchar(255),
     Address varchar(255),
     StartDate DATE,
@@ -17,6 +17,14 @@ CREATE TABLE Schedule (
     FOREIGN KEY (SSN) REFERENCES Person(SSN), 
     FOREIGN KEY (Address) REFERENCES Residence(Address) 
 );
+
+CREATE TABLE Employment (
+    MedicareNumber varchar(255),
+    FacilityName varchar(255),
+    Role varchar(255),
+    StartDate DAT-E,
+    EndDate DATE
+)
 
 
 -- Ensures a person can only have one primary residence
@@ -34,4 +42,4 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Each person can have only one primary residence.';
     END IF;
-END; */
+END; 

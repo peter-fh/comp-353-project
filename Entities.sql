@@ -75,7 +75,7 @@ CREATE TABLE EmailLog(
     Body TEXT,
     SendDate DATE,
     Sent bit,
-    FOREIGN KEY (Recipient) REFERENCES Employee(MedicareNumber)
+    FOREIGN KEY (Recipient) REFERENCES Employee(Email)
 );
 
 CREATE TABLE ScheduleEvent (
