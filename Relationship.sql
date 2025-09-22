@@ -56,7 +56,8 @@ BEGIN
     DECLARE primaryCount INT;
     SELECT COUNT(*) INTO primaryCount
     FROM Residency
-	WHERE SSN = NEW.SSN AND IsPrimary = 1;
+    WHERE SSN = NEW.SSN AND IsPrimary = 1;
+    IF NEW.IsPrimary 
 END//
 
 DELIMITER ; */
